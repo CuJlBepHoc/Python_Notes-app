@@ -37,7 +37,7 @@ def edit_note():
     if not notes:
         print("Список заметок пуст")
         return
-    index = int(input("Введите номер заметки для редактирования: "))
+    index = int(input("Введите номер заметки для редактирования: ")) - 1
     if 0 <= index < len(notes):
         notes[index] = create_note()
         with open('notes.json', 'w') as file:
@@ -52,7 +52,7 @@ def delete_note():
     if not notes:
         print("Список заметок пуст")
         return
-    index = int(input("Введите номер заметки для удаления: "))
+    index = int(input("Введите номер заметки для удаления: ")) - 1
     if 0 <= index < len(notes):
         del notes[index]
         with open('notes.json', 'w') as file:
