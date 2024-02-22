@@ -28,3 +28,17 @@ def read_notes():
         notes = json.load(file)
         return notes
     
+def edit_note():
+    notes = read_notes()
+    if not notes:
+        print("Список заметок пуст")
+        return
+    index = int(input("Введите номер заметки для редактирования: "))
+    if 0 <= index < len(notes):
+        notes[index] = create_note()
+        with open ('notes.json', 'w') as file:
+            json.dump(notes, file, indent=4)
+        print("Заметка успешно отредактирована")
+    else:
+        print("Некорректный номер заметки")
+
