@@ -19,3 +19,12 @@ def save_note(note):
         data.append(note)
         file.seek(0)
         json.dump(data, file, indent=4)
+
+def read_notes():
+    if not os.path.exists('notes.json'):
+        print("Список заметок пуст")
+        return []
+    with open('notes.json', 'r') as file:
+        notes = json.load(file)
+        return notes
+    
