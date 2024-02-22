@@ -2,7 +2,7 @@ import json
 import os
 from datetime import datetime
 
-
+# Функция для создания новой заметки
 def create_note():
     title = input("Введите заголовок заметки: ")
     message = input("Введите тело заметки: ")
@@ -11,7 +11,7 @@ def create_note():
     save_note(note)
     return note
 
-
+# Функция для сохранения заметки в файле JSON
 def save_note(note):
     if not os.path.exists('notes.json'):
         with open('notes.json', 'w') as file:
@@ -22,7 +22,7 @@ def save_note(note):
         file.seek(0)
         json.dump(data, file, indent=4)
 
-
+# Функция для чтения всех заметок из файла JSON
 def read_notes():
     if not os.path.exists('notes.json'):
         print("Список заметок пуст")
@@ -31,7 +31,7 @@ def read_notes():
         notes = json.load(file)
         return notes
 
-
+# Функция для редактирования существующей заметки
 def edit_note():
     notes = read_notes()
     if not notes:
@@ -46,7 +46,7 @@ def edit_note():
     else:
         print("Некорректный номер заметки")
 
-
+# Функция для удаления существующей заметки
 def delete_note():
     notes = read_notes()
     if not notes:
