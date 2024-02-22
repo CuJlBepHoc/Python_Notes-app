@@ -42,3 +42,16 @@ def edit_note():
     else:
         print("Некорректный номер заметки")
 
+def delete_note():
+    notes = read_notes()
+    if not notes:
+        print("Список заметок пуст")
+        return
+    index = int(input("Введите номер заметки для удаления: "))
+    if 0 <= index < len(notes):
+        del notes[index]
+        with open('notes.json', 'w') as file:
+            json.dump(notes, file, indent=4)
+        print("Заметка успешно удалена")
+    else:
+        print("Некорректный номер заметки")
