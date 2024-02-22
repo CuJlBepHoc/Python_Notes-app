@@ -17,8 +17,7 @@ def main():
             notes = read_notes()
             if notes:
                 for i, note in enumerate(notes):
-                    print(f"{i}. Заголовок: {note['title']}, Дата создания: {
-                          note['timestamp']}")
+                    print(f"{i}. Заголовок: {note['title']}, Дата создания: {note['timestamp']}")
             else:
                 print("Список заметок пуст")
         elif choice == '3':
